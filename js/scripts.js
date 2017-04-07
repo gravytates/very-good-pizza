@@ -3,13 +3,12 @@ function User(name) {
   this.name = name;
 }
 
-
 function Pizza(size){
   this.size = size;
   this.frills = [];
 }
 
- Pizza.prototype.sizeCost = function(size) {
+Pizza.prototype.sizeCost = function(size) {
   var sizePrice = 0;
   if (this.size === "small") {
     sizePrice = 0;
@@ -53,10 +52,23 @@ Pizza.prototype.pizzaCost = function(sizePrice, totalFrillsPrice){
 
 
 // UI Logic
+$(function(){
+  $("#mainForm").submit(function(e){
+    e.preventDefault();
+    let name = $("#name").val();
+    let size = $("#sizes").val();
+    let pizza = new Pizza(size);
+    $("input:checkbox[name=frills]:checked").each(function(){
+    let inputFrills = parseFloat($(this).val());
+    pizza.frills.push(inputFrills);
+    console.log(pizza.frills);
+    });
+  });
+});
 
 
 // checkbox data gather example
-$("input:checkbox[name=work-transportation]:checked").each(function(){
-     var workTransportationMode = $(this).val();
-     $('#work-responses').append(workTransportationMode + "<br>");
-   });
+// $("input:checkbox[name=work-transportation]:checked").each(function(){
+//      var workTransportationMode = $(this).val();
+//      $('#work-responses').append(workTransportationMode + "<br>");
+//    });
