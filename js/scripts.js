@@ -70,18 +70,14 @@ $(function(){
     var street = $("#street").val();
     var city = $("#city").val();
     var state = $("#state").val();
-    var address = [];
-
-    var frillsArray = [];
-    var newCustomer = new Customer(name, address);
-    var pizza = new Pizza(size, vector, frillsArray);
+    var newCustomer = new Customer(name);
+    var pizza = new Pizza(size, vector);
     $("input:checkbox[name=frills]:checked").each(function(){
       let inputFrills = parseFloat($(this).val());
       pizza.frillsArray.push(inputFrills);
     });
     newCustomer.address.push(street, city, state);
     console.log(newCustomer.address);
-
 
     // user input warnings and address display upon order submission
     if (newCustomer.name === "") {
@@ -104,7 +100,6 @@ $(function(){
       $(".result").show();
       $(".home-page").hide();
     }
-
 
     let totalCost = pizza.pizzaCost(pizza.size, pizza.vector, pizza.frillsArray);
     $("#name-result").html(`<strong>${newCustomer.name}</strong>`);

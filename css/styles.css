@@ -1,9 +1,25 @@
+body {
+  font-family: 'Arvo', serif;
+  background-color: rgba(224, 200, 184, 0.7);
+}
+
 .result {
   display: none;
 }
 
+.jumbotron {
+  background-color: black;
+  color: rgb(183, 139, 110);
+  width: 100%;
+  text-align: center;
+}
+
+.submit {
+  color: black;
+}
+
 #name-warning {
-  color: orange;
+  color: crimson;
   display: none;
   padding-left: 20px;
 }
