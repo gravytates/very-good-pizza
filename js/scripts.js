@@ -1,12 +1,10 @@
 // Business Logic
-
 function Pizza(name, size){
   this.name = name;
   this.size = size;
   this.frillsArray = [];
 }
 
-// test works!
 var sizeCost = function(size) {
   var sizePrice = 0;
   console.log(size);
@@ -34,7 +32,6 @@ Pizza.prototype.pizzaCost = function(size, frillsArray){
   return "$" + price.toFixed(2);
 }
 
-
 // UI Logic
 $(function(){
   $("#mainForm").submit(function(e){
@@ -42,15 +39,22 @@ $(function(){
     var name = $("#name").val();
     var size = $("#sizes").val();
     var frillsArray = [];
+    if (name === "") {
+      $("#name-warning").show();
+    } else if (size === "Choose your pizza size") {
+      $("#size-warning").show();
+    } else {
+      $(".result").show();
+      $(".home-page").hide();
+    }
     var pizza = new Pizza(name, size, frillsArray);
     $("input:checkbox[name=frills]:checked").each(function(){
     let inputFrills = parseFloat($(this).val());
     pizza.frillsArray.push(inputFrills);
-    // console.log(pizza.frillsArray);
     });
 
     let totalCost = pizza.pizzaCost(pizza.size, pizza.frillsArray);
-    $(".result").show();
+    $("#name-result").text(name);
     $("#size-result").text(size);
     $("#price-result").text(totalCost);
   });
