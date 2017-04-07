@@ -3,12 +3,13 @@
 function Pizza(name, size){
   this.name = name;
   this.size = size;
-  this.frills = [];
+  this.frillsArray = [];
 }
 
 // test works!
 var sizeCost = function(size) {
   var sizePrice = 0;
+  console.log(size);
   if (size === "small") {
     sizePrice = 0;
   } else if (size === "medium") {
@@ -19,18 +20,18 @@ var sizeCost = function(size) {
   return sizePrice;
 }
 
-var frillsCost = function(frills) {
+var frillsCost = function(frillsArray) {
   let frillsPrice = 0;
-  for(i=0; i<=this.frills.length; i++) {
-    frillsPrice += this.frills[i];
+  console.log(frillsArray);
+  for(i=0; i<=frillsArray.length -1; i++) {
+    frillsPrice += parseFloat(frillsArray[i]);
   }
   return frillsPrice;
 }
 
-Pizza.prototype.pizzaCost = function(size){
-  var price = 9 + sizeCost(size);
-  //  + frillsCost(frills);
-  return "$" + price + ".00";
+Pizza.prototype.pizzaCost = function(size, frillsArray){
+  var price = 9 + sizeCost(size) + frillsCost(frillsArray);
+  return "$" + price.toFixed(2);
 }
 
 
@@ -40,15 +41,17 @@ $(function(){
     e.preventDefault();
     var name = $("#name").val();
     var size = $("#sizes").val();
-    var pizza = new Pizza(name, size);
+    var frillsArray = [];
+    var pizza = new Pizza(name, size, frillsArray);
     $("input:checkbox[name=frills]:checked").each(function(){
     let inputFrills = parseFloat($(this).val());
-    pizza.frills.push(inputFrills);
-    console.log(pizza.frills);
+    pizza.frillsArray.push(inputFrills);
+    // console.log(pizza.frillsArray);
     });
 
-    let totalCost = pizza.pizzaCost(pizza.size);
+    let totalCost = pizza.pizzaCost(pizza.size, pizza.frillsArray);
     $(".result").show();
+    $("#size-result").text(size);
     $("#price-result").text(totalCost);
   });
 });
