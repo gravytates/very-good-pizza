@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <title>Very Good Pizza</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="jumbotron">
+        <h1>Very Good Pizza</h1>
+        <p>Decide. Pay.</p>
+      </div>
+
+
+      <div class="row">
+        <!-- one column for now -->
+        <div class="col-md-12">
+          <h2>Pizza begins with dough, red sauce, and mozzarella cheese.</h2>
+          <form id="mainForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="userName">
+            </div>
+
+            <div class="form-group">
+              <label for="movie-label">Size:</label>
+              <select class="form-control" id="movie-titles">
+                <option>Choose your pizza size</option>
+                <option>Small- 10" $9.00</option>
+                <option>Medium- 14" $11.00</option>
+                <option>Large- 18" $13.00</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="show-label">Unnecessary Frills:</label><br>
+              <input type="checkbox" name="frills" value="pepperoni">pepperoni $1.50<br>
+              <input type="checkbox" name="frills" value="sausage">sausage $1.50<br>
+              <input type="checkbox" name="frills" value="mushrooms">mushrooms $0.75<br>
+              <input type="checkbox" name="frills" value="olives">olives $0.75<br>
+              <input type="checkbox" name="frills" value="arugula">arugula $0.75<br>
+            </div>
+
+            <button type="submit" class="btn btn-info">Place Order</button>
+          </form>
+
+          <div class="result">
+            <h2>Pizza Details</h2>
+            <ul class="ticket-summary">
+              <p>
+                <span id="name-result"></span>, Find your order details below:
+              </p>
+              <p>
+                Pizza size: <span id="size-result"></span>
+              </p>
+              <p>
+                Selected frills: <span id="frills-result"></span>
+              </p>
+              <p>
+                Price: <span id="price-result"></span>
+              </p>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
