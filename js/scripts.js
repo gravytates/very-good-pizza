@@ -80,6 +80,7 @@ var vectorWarning = function() {
   $("#size-warning").hide();
 }
 
+// warning functions to preprocess and save ui space
 var streetWarning = function() {
   $("#street-warning").show();
   $("#name-warning").hide();
@@ -129,7 +130,7 @@ var showResult = function() {
   $("#size-warning").hide();
 }
 
-// UI Logic
+// UI LOGIC
 $(function(){
   // shows address inputs upon delivery vector selection
   $("#vector").change(function() {
@@ -193,8 +194,6 @@ $(function(){
     })
 
     // user input warnings and address display upon order submission
-
-
     if (newCustomer.name === "") {
       nameWarning(newCustomer.name);
     } else if (size === "Choose your pizza size") {
@@ -223,5 +222,4 @@ $(function(){
     $("#city-result").text(newCustomer.address[0].city);
     $("#state-result").text(newCustomer.address[0].state);
   });
-
 });

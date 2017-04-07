@@ -1,10 +1,12 @@
-# Dusty's Pizza Shop
+# Very Good Pizza Shop
 
 ##### Epicodus Section: JavaScript OO - Pizza Shop
 
 #### By Grady L Shelton
 
 ## Description
+
+Website can be viewed in browser at https://gravytates.github.io/very-good-pizza
 
 This application is a week 4 code review for epicodus' intro to programming which highlights use of constructors and prototypes in JavaScript to create a Pizza ordering app based in object-oriented design.
 
