@@ -25,31 +25,31 @@ body {
 }
 
 #size-warning {
-  color: orange;
+  color: crimson;
   display: none;
   padding-left: 20px;
 }
 
 #vector-warning {
-  color: orange;
+  color: crimson;
   display: none;
   padding-left: 20px;
 }
 
 #street-warning {
-  color: orange;
+  color: crimson;
   display: none;
   padding-left: 20px;
 }
 
 #city-warning {
-  color: orange;
+  color: crimson;
   display: none;
   padding-left: 20px;
 }
 
 #state-warning {
-  color: orange;
+  color: crimson;
   display: none;
   padding-left: 20px;
 }

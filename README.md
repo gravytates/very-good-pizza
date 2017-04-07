@@ -6,7 +6,7 @@
 
 ## Description
 
-This application is a week 4 code review for epicodus' intro into programming which highlights use of constructors and prototypes in JavaScript to create a Pizza ordering app based in object-oriented design.
+This application is a week 4 code review for epicodus' intro to programming which highlights use of constructors and prototypes in JavaScript to create a Pizza ordering app based in object-oriented design.
 
 ## Specifications
 
@@ -14,27 +14,37 @@ This application is a week 4 code review for epicodus' intro into programming wh
   * **Example Input:** "Grady Shelton"
   * **Example Output:** "Name: Grady Shelton"
 
+  * Program will take user input for different size of pizza
+  * **Example Input:** "check: large, 18""
+  * **Example Output:** "Pizza size: large 18""
+
 * Program will take user input for different toppings to be used on pizza.
   * **Example Input:** "check: Pepperoni, olives, mushrooms"
   * **Example Output:** "Pizza toppings: Pepperoni, olives, mushrooms"
 
-* Program will take user input for different size of pizza
-  * **Example Input:** "check: large, 18""
-  * **Example Output:** "Pizza size: large 18""
+* Program will take user input for different vectors of pizza/customer coupling.
+  * **Example Input:** "check: delivery"
+  * **Example Output:** "Pizza vector: Delivery"
 
-* Program will take user input for selections and result in a total price for the pizza.
-  * **Example Input:** "check: large, 18" with pepperoni"
-  * **Example Output:** "Pizza Total: $12.00"
-
-
+* Program will take user input for selections and result in a custom total price for the pizza.
+  * **Example Input:** "check: large, 18" with pepperoni, delivery to 123 sw smoke ln Portland, OR"
+  * **Example Output:** "Pizza Total: $15.00. Delivery address: 123 sw smoke ln Portland, OR"
 
 ## Setup
 
 Install Dusty's Pizza Shop by cloning this repository.
 
+## Known Bugs
+
+Button to add another pizza creates proper input fields but selections beyond first pizza are not reflected in the order summary.
+
+## Contact
+
+Please contact Grady L Shelton at gradyish@gmail.com if you have any questions.
+
 ## Technologies Used
 
-JavaScript and jQuery
+HTML, CSS, JavaScript and jQuery
 
 ### Legal
 
