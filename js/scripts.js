@@ -1,8 +1,16 @@
 // Business Logic
-
-
-function Pizza(name, size, vector){
+function Customer(name){
   this.name = name;
+  this.address = [];
+}
+
+function Address(street, city, state){
+  this.street = street;
+  this.city = city;
+  this.state = state;
+}
+
+function Pizza(size, vector){
   this.size = size;
   this.vector = vector;
   this.frillsArray = [];
@@ -62,17 +70,21 @@ $(function(){
     var street = $("#street").val();
     var city = $("#city").val();
     var state = $("#state").val();
+    var address = [];
+
     var frillsArray = [];
-    var frillsNames = $("#frills input:checked").text();
-    var pizza = new Pizza(name, size, vector, frillsArray);
+    var newCustomer = new Customer(name, address);
+    var pizza = new Pizza(size, vector, frillsArray);
     $("input:checkbox[name=frills]:checked").each(function(){
       let inputFrills = parseFloat($(this).val());
       pizza.frillsArray.push(inputFrills);
     });
+    newCustomer.address.push(street, city, state);
+    console.log(newCustomer.address);
 
 
     // user input warnings and address display upon order submission
-    if (name === "") {
+    if (newCustomer.name === "") {
       $("#name-warning").show();
     } else if (size === "Choose your pizza size") {
       $("#size-warning").show();
@@ -95,11 +107,12 @@ $(function(){
 
 
     let totalCost = pizza.pizzaCost(pizza.size, pizza.vector, pizza.frillsArray);
-    $("#name-result").text(name);
+    $("#name-result").html(`<strong>${newCustomer.name}</strong>`);
     $("#size-result").text(size);
-    $("#frills-result").text(frillsNames);
     $("#price-result").text(totalCost);
     $("#vector-result").text(vector);
-    // $("#address-result").append();
+    $("#street-result").text(newCustomer.address[0]);
+    $("#city-result").text(newCustomer.address[1]);
+    $("#state-result").text(newCustomer.address[2]);
   });
 });
