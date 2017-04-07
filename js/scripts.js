@@ -1,4 +1,6 @@
 // Business Logic
+
+
 function Pizza(name, size, vector){
   this.name = name;
   this.size = size;
@@ -45,11 +47,21 @@ Pizza.prototype.pizzaCost = function(size, vector, frillsArray){
 
 // UI Logic
 $(function(){
+  // shows address inputs upon delivery vector selection
+  $("#vector").change(function() {
+    if ($("#vector").val() === "delivery") {
+      $("#address").show();
+    }
+  });
+
   $("#mainForm").submit(function(e){
     e.preventDefault();
     var name = $("#name").val();
     var size = $("#sizes").val();
     var vector = $("#vector").val();
+    var street = $("#street").val();
+    var city = $("#city").val();
+    var state = $("#state").val();
     var frillsArray = [];
     var frillsNames = $("#frills input:checked").text();
     var pizza = new Pizza(name, size, vector, frillsArray);
@@ -57,21 +69,37 @@ $(function(){
       let inputFrills = parseFloat($(this).val());
       pizza.frillsArray.push(inputFrills);
     });
+
+
+    // user input warnings and address display upon order submission
     if (name === "") {
       $("#name-warning").show();
     } else if (size === "Choose your pizza size") {
       $("#size-warning").show();
     } else if (vector === "Choose an option") {
       $("#vector-warning").show();
+    } else if ((vector === "delivery") && (street === "")) {
+      $("#street-warning").show();
+    } else if ((vector === "delivery") && (city === "")) {
+      $("#city-warning").show();
+    } else if ((vector === "delivery") && (state === "")) {
+      $("#state-warning").show();
+    } else if (vector === "pick-up") {
+      $(".result").show();
+      $(".home-page").hide();
+      $(".address-result").hide();
     } else {
       $(".result").show();
       $(".home-page").hide();
     }
+
 
     let totalCost = pizza.pizzaCost(pizza.size, pizza.vector, pizza.frillsArray);
     $("#name-result").text(name);
     $("#size-result").text(size);
     $("#frills-result").text(frillsNames);
     $("#price-result").text(totalCost);
+    $("#vector-result").text(vector);
+    // $("#address-result").append();
   });
 });

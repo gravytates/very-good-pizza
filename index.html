@@ -24,7 +24,7 @@
       <div class="row">
         <!-- one column for now -->
         <div class="col-md-12">
-            <h2>Pizza begins with dough, red sauce, and mozzarella cheese.</h2>
+            <h2>Pizza begins with dough, red sauce, and mozzarella cheese.</h2><hr>
 
             <div class="home-page">
             <form id="mainForm">
@@ -59,12 +59,25 @@
                 <select class="form-control" id="vector">
                   <option>Choose an option</option>
                   <option id="delivery" value="delivery">Delivery ($3.00)</option>
-                  <option id="take-out" value="pick-up">Pick-up</option>
+                  <option id="pick-up" value="pick-up">Pick-up</option>
                 </select>
+              </div>
+
+              <div id="address" class="form-group">
+                <label for="street">Street</label><br>
+                <span id="street-warning">street required</span>
+                <input type="text" class="form-control" id="street"><br>
+                <label for="city">City</label><br>
+                <span id="city-warning">city required</span>
+                <input type="text" class="form-control" id="city"><br>
+                <label for="state">State</label><br>
+                <span id="state-warning">state required</span>
+                <input type="text" class="form-control" id="state"><br>
               </div>
 
               <button type="submit" class="btn btn-info">Place Order</button>
             </form>
+            <!-- end home-page div -->
           </div>
 
           <div class="result">
@@ -82,6 +95,22 @@
               <p>
                 Price: <span id="price-result"></span>
               </p>
+
+              <p>
+                Pizza Vector: <span id="vector-result"></span>
+              </p>
+              <div class="address-result">
+                <h3>Delivery Address:</h3>
+                <p>
+                  Street: <span id="street-result"></span>
+                </p>
+                <p>
+                  City: <span id="city-result"></span>
+                </p>
+                <p>
+                  State: <span id="State-result"></span>
+                </p>
+              </div>
             </ul>
           </div>
           <!-- end column -->
