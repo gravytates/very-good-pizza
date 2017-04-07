@@ -5,9 +5,17 @@
 #name-warning {
   color: orange;
   display: none;
+  padding-left: 20px;
 }
 
 #size-warning {
   color: orange;
   display: none;
+  padding-left: 20px;
+}
+
+#vector-warning {
+  color: orange;
+  display: none;
+  padding-left: 20px;
 }

@@ -25,7 +25,7 @@
         <!-- one column for now -->
         <div class="col-md-12">
             <h2>Pizza begins with dough, red sauce, and mozzarella cheese.</h2>
-            
+
             <div class="home-page">
             <form id="mainForm">
               <div class="form-group">
@@ -43,21 +43,24 @@
                 </select>
               </div>
 
-<!-- warning example
-              <div class="form-group has-warning">
-                <label class="control-label" for="inputWarning1">Input with warning</label>
-                <input type="text" class="form-control" id="inputWarning1">
-              </div> -->
-
-
-              <div class="form-group">
+              <div id="frills" class="form-group">
                 <label for="show-label">Unnecessary Frills:</label><br>
-                <input type="checkbox" name="frills" value="1.5">pepperoni $1.50<br>
+                  <input type="checkbox" name="frills" value="1.5">pepperoni $1.50<br>
                 <input type="checkbox" name="frills" value="1.5">sausage $1.50<br>
+                <input type="checkbox" name="frills" value="1.5">bacon $1.50<br>
                 <input type="checkbox" name="frills" value="0.75">mushrooms $0.75<br>
                 <input type="checkbox" name="frills" value="0.75">olives $0.75<br>
                 <input type="checkbox" name="frills" value="0.75">arugula $0.75<br>
                 <input type="checkbox" name="frills" value="0.75">basil $0.75<br>
+              </div>
+
+              <div class="form-group">
+                <label for="size-label">Delivery or Pick-up</label><span id="vector-warning">Please choose an option</span>
+                <select class="form-control" id="vector">
+                  <option>Choose an option</option>
+                  <option id="delivery" value="delivery">Delivery ($3.00)</option>
+                  <option id="take-out" value="pick-up">Pick-up</option>
+                </select>
               </div>
 
               <button type="submit" class="btn btn-info">Place Order</button>
@@ -73,9 +76,9 @@
               <p>
                 Pizza size: <span id="size-result"></span>
               </p>
-              <p>
+              <!-- <p>
                 Selected frills: <span id="frills-result"></span>
-              </p>
+              </p> -->
               <p>
                 Price: <span id="price-result"></span>
               </p>

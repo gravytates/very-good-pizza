@@ -1,7 +1,8 @@
 // Business Logic
-function Pizza(name, size){
+function Pizza(name, size, vector){
   this.name = name;
   this.size = size;
+  this.vector = vector;
   this.frillsArray = [];
 }
 
@@ -18,6 +19,16 @@ var sizeCost = function(size) {
   return sizePrice;
 }
 
+var isDelivery = function(vector) {
+  var vectorPrice = 0;
+  if (vector === "pick-up") {
+    vectorPrice = 0;
+  } else if (vector === "delivery") {
+    vectorPrice = 3;
+  }
+  return vectorPrice;
+}
+
 var frillsCost = function(frillsArray) {
   let frillsPrice = 0;
   console.log(frillsArray);
@@ -27,8 +38,8 @@ var frillsCost = function(frillsArray) {
   return frillsPrice;
 }
 
-Pizza.prototype.pizzaCost = function(size, frillsArray){
-  var price = 9 + sizeCost(size) + frillsCost(frillsArray);
+Pizza.prototype.pizzaCost = function(size, vector, frillsArray){
+  var price = 9 + sizeCost(size) + isDelivery(vector) + frillsCost(frillsArray);
   return "$" + price.toFixed(2);
 }
 
@@ -38,24 +49,29 @@ $(function(){
     e.preventDefault();
     var name = $("#name").val();
     var size = $("#sizes").val();
+    var vector = $("#vector").val();
     var frillsArray = [];
+    var frillsNames = $("#frills input:checked").text();
+    var pizza = new Pizza(name, size, vector, frillsArray);
+    $("input:checkbox[name=frills]:checked").each(function(){
+      let inputFrills = parseFloat($(this).val());
+      pizza.frillsArray.push(inputFrills);
+    });
     if (name === "") {
       $("#name-warning").show();
     } else if (size === "Choose your pizza size") {
       $("#size-warning").show();
+    } else if (vector === "Choose an option") {
+      $("#vector-warning").show();
     } else {
       $(".result").show();
       $(".home-page").hide();
     }
-    var pizza = new Pizza(name, size, frillsArray);
-    $("input:checkbox[name=frills]:checked").each(function(){
-    let inputFrills = parseFloat($(this).val());
-    pizza.frillsArray.push(inputFrills);
-    });
 
-    let totalCost = pizza.pizzaCost(pizza.size, pizza.frillsArray);
+    let totalCost = pizza.pizzaCost(pizza.size, pizza.vector, pizza.frillsArray);
     $("#name-result").text(name);
     $("#size-result").text(size);
+    $("#frills-result").text(frillsNames);
     $("#price-result").text(totalCost);
   });
 });
