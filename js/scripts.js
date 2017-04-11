@@ -144,7 +144,9 @@ $(function(){
   // shows address inputs upon delivery vector selection
   $("#vector").change(function() {
     if ($("#vector").val() === "delivery") {
-      $("#address").toggle();
+      $("#address").show();
+    } else {
+      $("#address").hide();
     }
   });
 
