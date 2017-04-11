@@ -16,41 +16,50 @@ function Pizza(size, vector){
   this.frillsArray = [];
 }
 
-var sizeCost = function(size) {
+Pizza.prototype.sizeCost = function() {
   var sizePrice = 0;
-  console.log(size);
-  if (size === "small") {
+  console.log(this.size);
+  if (this.size === "small") {
     sizePrice = 0;
-  } else if (size === "medium") {
+  } else if (this.size === "medium") {
     sizePrice = 2;
-  } else if (size === "large"){
+  } else if (this.size === "large"){
     sizePrice = 4;
   }
   return sizePrice;
 }
 
-var isDelivery = function(vector) {
+Pizza.prototype.isDelivery = function() {
   var vectorPrice = 0;
-  if (vector === "pick-up") {
+  console.log(this.vector);
+  if (this.vector === "pick-up") {
     vectorPrice = 0;
-  } else if (vector === "delivery") {
+  } else if (this.vector === "delivery") {
     vectorPrice = 3;
   }
   return vectorPrice;
 }
 
-var frillsCost = function(frillsArray) {
+Pizza.prototype.frillsCost = function() {
   let frillsPrice = 0;
-  console.log(frillsArray);
-  for(i=0; i<=frillsArray.length -1; i++) {
+  console.log(this.frillsArray);
+  for(i=0; i<=this.frillsArray.length -1; i++) {
     frillsPrice += parseFloat(frillsArray[i]);
   }
   return frillsPrice;
 }
 
-Pizza.prototype.pizzaCost = function(size, vector, frillsArray){
-  var price = 9 + sizeCost(size) + isDelivery(vector) + frillsCost(frillsArray);
+Pizza.prototype.pizzaCost = function(){
+  var price = 9 + this.sizeCost() + this.isDelivery() + this.frillsCost();
   return "$" + price.toFixed(2);
+}
+
+// EXAMPLE
+
+Pizza.prototype.frillsCost = function(){ let frillsPrice = 0; console.log(this.frillsArray); for(i=0; i<=this.frillsArray.length -1; i++) { frillsPrice += parseFloat(this.frillsArray[i]); } return frillsPrice;
+}
+
+Pizza.prototype.pizzaCost = function(){ var price = 9 + this.sizeCost() + this.isDelivery() + this.frillsCost(); return "$" + price.toFixed(2);
 }
 
 var nameWarning = function() {
